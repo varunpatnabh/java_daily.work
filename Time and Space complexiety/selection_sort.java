@@ -12,7 +12,10 @@ public class selection_sort {
                     min=j;
                 }
             }
+            
             swap(arr,i,min);
+            print(arr);
+            
         }
         
       }

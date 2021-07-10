@@ -6,7 +6,9 @@ public class Bubble_sorting {
   public static void bubbleSort(int[] arr) {
     //write your code here
     for(int itr = 1;itr <= arr.length-1;itr++){
+      System.out.println(arr[itr]);
        for(int j = 0;j<arr.length-itr;j++){
+         System.out.println(arr[j]);
            if(isSmaller(arr,j+1,j)){
                swap(arr,j+1,j);
            }

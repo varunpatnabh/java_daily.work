@@ -1,19 +1,24 @@
 import java.io.*;
 import java.util.*;
 
-public class insertion_sort {
-    public static void insertionSort(int[] arr) {
+public class array_partition {
+    public static void partition(int[] arr, int pivot){
         //write your code here
-        for(int i=1;i<arr.length;i++){
-            for(int j = i - 1;j>=0;j--){
-                if(isGreater(arr,j,j+1)){
-                    swap(arr,j,j+1);
-                }else{
-                    break;
-                }print(arr);
+        // 0 to j-1 - <= pivot
+        // j to i-1 - > pivot
+        // i to end -> unknown
+        int i = 0;
+        int j = 0;
+        
+        while(i < arr.length){
+            if(arr[i] > pivot){
+                i++;
+            }else{
+                swap(arr, i, j);
+                i++;
+                j++;
             }
         }
-        
       }
     
       // used for swapping ith and jth elements of array
@@ -24,20 +29,11 @@ public class insertion_sort {
         arr[j] = temp;
       }
     
-      // return true if jth element is greater than ith element
-      public static boolean isGreater(int[] arr, int j, int i) {
-        System.out.println("Comparing " + arr[i] + " and " + arr[j]);
-        if (arr[i] < arr[j]) {
-          return true;
-        } else {
-          return false;
-        }
-      }
-    
       public static void print(int[] arr) {
         for (int i = 0; i < arr.length; i++) {
-          System.out.println(arr[i]);
+          System.out.print(arr[i] + " ");
         }
+        System.out.println();
       }
     
       public static void main(String[] args) throws Exception {
@@ -47,8 +43,8 @@ public class insertion_sort {
         for (int i = 0; i < n; i++) {
           arr[i] = scn.nextInt();
         }
-        insertionSort(arr);
+        int pivot = scn.nextInt();
+        partition(arr,pivot);
         print(arr);
       }
-    
 }
